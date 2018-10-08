@@ -24,9 +24,9 @@
   ],
    "proxy": {
     "/api": {
-      "target": "https://rocky-dusk-10226.herokuapp.comsss",
+      "target": "https://domsrv.herokuapp.com",
       "ws": true
     }
   },
-   "proxy": "https://rocky-dusk-10226.herokuapp.com"
+   "proxy": "https://domsrv.herokuapp.com"
 }
