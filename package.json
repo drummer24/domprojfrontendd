@@ -17,15 +17,16 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:8080",
+      "ws": true
+    },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "proxy": {
-    "/api": {
-      "target": "http://localhost:8080",
-      "ws": true
-    }
+  ]
 }
