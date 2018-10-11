@@ -22,5 +22,16 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
+<<<<<<< HEAD
   ]
+=======
+  ],
+   "proxy": {
+    "/api": {
+      "target": "https://domsrv.herokuapp.com",
+      "ws": true
+    }
+  },
+   "proxy": "https://domsrv.herokuapp.com"
+>>>>>>> 2a99144792142a99d506cd84d9278dedc4f3819c
 }
