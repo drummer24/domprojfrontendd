@@ -1,23 +1,27 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+require('dotenv').config()
+require('dotenv').load()
 class App extends Component {
 
    state = {
     
   };
    componentDidMount() {
+        
         setInterval(this.updatewiew, 1000);
     }
 
     updatewiew = () => {
+       //console.log(deployment.env)
         fetch('/index/greetings')
-            .then(response => response.text())
+            .then(response => response)
             .then(message => {
+                
                 this.setState({message: message});
             });
-    
+    console.log(process.env)
     console.log(this.state);
     };
   
