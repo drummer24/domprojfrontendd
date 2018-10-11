@@ -15,7 +15,7 @@ class App extends Component {
 
     updatewiew = () => {
        //console.log(deployment.env)
-        fetch('/index/greetings')
+        fetch('process.env./index/greetings')
             .then(response => response)
             .then(message => {
                 
