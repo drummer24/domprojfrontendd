@@ -15,7 +15,7 @@ class App extends Component {
 
     updatewiew = () => {
        //console.log(deployment.env)
-        fetch('https://domsrv.herokuapp.com//index/greetings')
+        fetch('/index/greetings')
             .then(response => response)
             .then(message => {
                 
