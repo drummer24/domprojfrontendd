@@ -21,9 +21,9 @@ class App extends Component {
         console.log(this.url+'/index/greetings');
        //console.log(deployment.env)
         fetch(this.url+'/index/greetings')
-            .then(response => response)
+            .then(response => response.text())
             .then(message => {
-                message= await message.text()
+               
                 
                 console.log(message)
                 this.setState({message: message});
