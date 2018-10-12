@@ -22,7 +22,7 @@ class App extends Component {
         console.log(this.url+'/index/greetings');
        //console.log(deployment.env)
         fetch(this.url+'/index/greetings')
-            .then(response => response.text())
+            .then(response => response)
             .then(message => {
                
                 
