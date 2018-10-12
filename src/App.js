@@ -22,11 +22,11 @@ class App extends Component {
         console.log(this.url+'/index/greetings');
        //console.log(deployment.env)
         fetch(this.url+'/index/greetings')
-            .then(response => response)
+            .then(response => response.json())
             .then(message => {
                
                 
-                console.log(message.json())
+                
                 this.setState({message: message});
             });
    
