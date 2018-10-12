@@ -14,7 +14,8 @@ class App extends Component {
     };
    componentDidMount() {
         
-        this.updatewiew();
+        setTimeout(this.updatewiew,1000
+                );
     }
 
     updatewiew = () => {
@@ -25,7 +26,7 @@ class App extends Component {
             .then(message => {
                
                 
-                console.log(message)
+               // console.log(message)
                 this.setState({message: message});
             });
    
