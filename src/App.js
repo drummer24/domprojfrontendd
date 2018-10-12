@@ -22,9 +22,9 @@ class App extends Component {
         fetch('/index/greetings')
             .then(response => response)
             .then(message => {
-                message=message.text()
+                //message=message.text()
                 console.log(message)
-                this.setState({message: message});
+                //this.setState({message: message});
             });
    
     };
