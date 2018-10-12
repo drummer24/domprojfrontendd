@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 require('dotenv').config()
 require('dotenv').load()
-msg='';
+
 class App extends Component {
    // console.log(process)
     url=process.env.REACT_APP_API_URL;
@@ -23,8 +23,8 @@ class App extends Component {
         fetch(this.url+'/index/greetings')
             .then(response => response)
             .then(message => {
-                message=message.text()
-                msg=message;
+                message= await message.text()
+                
                 console.log(message)
                 this.setState({message: message});
             });
