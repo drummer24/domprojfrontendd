@@ -24,7 +24,7 @@ class App extends Component {
             .then(message => {
                 message=message.text()
                 console.log(message)
-                //this.setState({message: message});
+                this.setState({message: message});
             });
    
     };
