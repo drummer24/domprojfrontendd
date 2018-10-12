@@ -19,10 +19,10 @@ class App extends Component {
     updatewiew = () => {
         console.log(this.url+'/index/greetings');
        //console.log(deployment.env)
-        fetch('/index/greetings')
+        fetch(this.url'/index/greetings')
             .then(response => response)
             .then(message => {
-                //message=message.text()
+                message=message.text()
                 console.log(message)
                 //this.setState({message: message});
             });
