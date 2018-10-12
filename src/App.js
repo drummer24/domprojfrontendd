@@ -26,7 +26,7 @@ class App extends Component {
             .then(message => {
                
                 
-                console.log(messages.json())
+                console.log(message.json())
                 this.setState({message: message});
             });
    
