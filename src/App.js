@@ -4,25 +4,28 @@ import './App.css';
 require('dotenv').config()
 require('dotenv').load()
 class App extends Component {
-
-   state = {
+   // console.log(process)
+    url=process.env.REACT_APP_API_URL;
+     
     
-  };
+   state = {
+       message:''
+    };
    componentDidMount() {
         
         setInterval(this.updatewiew, 1000);
     }
 
     updatewiew = () => {
+        console.log(this.url+'/index/greetings');
        //console.log(deployment.env)
         fetch('/index/greetings')
             .then(response => response)
             .then(message => {
-                
+                message=message.text()
                 this.setState({message: message});
             });
-    console.log(process.env)
-    console.log(this.state);
+   
     };
   
    render() {
