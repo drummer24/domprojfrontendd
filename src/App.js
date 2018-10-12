@@ -13,7 +13,7 @@ class App extends Component {
     };
    componentDidMount() {
         
-        setInterval(this.updatewiew, 1000);
+        this.updatewiew();
     }
 
     updatewiew = () => {
@@ -22,7 +22,7 @@ class App extends Component {
         fetch(this.url+'/index/greetings')
             .then(response => response)
             .then(message => {
-                message=message.json()
+                message=message.text()
                 console.log(message)
                 this.setState({message: message});
             });
