@@ -22,7 +22,7 @@ class App extends Component {
         fetch(this.url+'/index/greetings')
             .then(response => response)
             .then(message => {
-                message=message.text()
+                message=message.json()
                 console.log(message)
                 this.setState({message: message});
             });
