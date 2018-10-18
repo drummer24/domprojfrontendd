@@ -21,8 +21,8 @@ const rendertree = items => {
 
 class App extends Component {
    // console.log(process)
-    //url=process.env.REACT_APP_API_URL;
-    url='http://localhost:8080' 
+    url=process.env.REACT_APP_API_URL;
+     
     
    state = {
        message:''
