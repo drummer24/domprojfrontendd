@@ -3,37 +3,50 @@ import logo from './logo.svg';
 import './App.css';
 require('dotenv').config()
 require('dotenv').load()
+const rendertree = items => {
+    
+  return <ul>
+
+    { items.childreins.map(i => {
+        console.log(i)
+      return <li>
+        { i.data.task }
+        { i.childreins && rendertree(i) }
+      </li>
+      
+    })}
+  </ul>
+}
+
 
 class App extends Component {
    // console.log(process)
-    url=process.env.REACT_APP_API_URL;
-     
+    //url=process.env.REACT_APP_API_URL;
+    url='http://localhost:8080' 
     
    state = {
        message:''
     };
    componentDidMount() {
         
-        setTimeout(this.updatewiew,1000
-                );
+        setTimeout(this.updatewiew)
     }
 
     updatewiew = () => {
-        console.log(this.url+'/index/greetings');
+         console.log(this.url+'/index/greetings');
        //console.log(deployment.env)
         fetch(this.url+'/index/greetings')
             .then(response => response.json())
             .then(message => {
                
                 
-                
+            
                 this.setState({message: message});
             });
    
     };
-  
    render() {
-    return (
+     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -49,9 +62,17 @@ class App extends Component {
             Learn React
           </a>
           <p>
-        
-        the response is {this.state.message}
-        </p>
+          {(this.state.message.data === undefined)
+          ? <div> Something went wrong </div> 
+          :  <ul>
+          <li>
+        { this.state.message.data.task }
+      </li>
+          {rendertree(this.state.message)} 
+          </ul> 
+          }
+                </p>        
+     
         </header>
       </div>
     );
