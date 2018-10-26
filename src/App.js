@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 require('dotenv').config()
 require('dotenv').load()
-const rendertree = items => {
+
+
+
+class App extends Component {
+   // console.log(process)
+    url=process.env.REACT_APP_API_URL;
+    s
+   indexes=[]
+ 
+rendertree = items => {
     
   return <ul>
 
@@ -11,19 +20,30 @@ const rendertree = items => {
         console.log(i)
       return <li>
         { i.data.task }
-        { i.childreins && rendertree(i) }
-      </li>
-      
-    })}
+        { i.childreins && this.rendertree(i) }
+      </li> 
+      })}
   </ul>
-}
+  
 
-
-class App extends Component {
-   // console.log(process)
-    url=process.env.REACT_APP_API_URL;
-     
+} 
+ rendermenu = items => {
+   return <ul>
+{Object.keys(items).map(function(key, index){
+  return  <li>
+  {items[key].name}
+   </li>
+   
+})}
+ </ul> 
+      
     
+
+      
+  
+}
+ 
+ 
    state = {
        message:''
     };
@@ -40,7 +60,7 @@ class App extends Component {
             .then(message => {
                
                 
-            
+               
                 this.setState({message: message});
             });
    
@@ -49,29 +69,14 @@ class App extends Component {
      return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          <p>
-          {(this.state.message.data === undefined)
-          ? <div> Something went wrong </div> 
-          :  <ul>
-          <li>
-        { this.state.message.data.task }
-      </li>
-          {rendertree(this.state.message)} 
-          </ul> 
+          
+          {(this.state.message === undefined)
+          ? <div> server not responding </div> 
+          :  
+          this.rendermenu(this.state.message) 
+           
           }
-                </p>        
+                        
      
         </header>
       </div>
