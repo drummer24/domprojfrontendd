@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
+//import Select from 'react-select';
 //import logo from './logo.svg';
 import './App.css';
+import { Link ,Route ,BrowserRouter } from 'react-router-dom'
 require('dotenv').config()
 require('dotenv').load()
 
 
 
 class App extends Component {
+ Home = (props) => (
+        
+  <div>
+      <h2>{props.match.params.name}</h2>
+  </div>
+)   
+
    // console.log(process)
     url=process.env.REACT_APP_API_URL;
-    s
+    
    indexes=[]
  
 rendertree = items => {
@@ -27,15 +36,24 @@ rendertree = items => {
   
 
 } 
+
+
  rendermenu = items => {
-   return <ul>
+  
+   return <BrowserRouter><div><ul>
 {Object.keys(items).map(function(key, index){
-  return  <li>
-  {items[key].name}
-   </li>
-   
+    console.log(items[key])
+    return <li><Link to={`/home/${items[key].name}`}>{items[key].name}</Link></li>
+
+  
 })}
- </ul> 
+<Route path="/home/:name" component={this.Home}>
+            </Route>
+
+    </ul>
+
+    </div>
+    </BrowserRouter>
       
     
 
