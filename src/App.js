@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import Select from 'react-select';
 //import logo from './logo.svg';
 import './App.css';
-import { Link ,Route ,BrowserRouter } from 'react-router-dom'
+import { NavLink,Link ,Route ,BrowserRouter } from 'react-router-dom'
 require('dotenv').config()
 require('dotenv').load()
 
@@ -43,12 +43,15 @@ rendertree = items => {
    return <BrowserRouter><div><ul>
 {Object.keys(items).map(function(key, index){
     console.log(items[key])
-    return <li><Link to={`/home/${items[key].name}`}>{items[key].name}</Link></li>
+    return <ul><NavLink to={`/home/${items[key].name}`}>{items[key].name}</NavLink></ul>;
 
   
 })}
-<Route path="/home/:name" component={this.Home}>
+
+<Route exact path="/home/:name" component={this.Home}>
             </Route>
+
+
 
     </ul>
 
